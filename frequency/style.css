@@ -1,0 +1,45 @@
+         body{
+ 				background-color: black;
+ 				font-family: Trebuchet MS, sans-serif;
+
+ 				}
+             body#bodylogin{
+           background-color: black;
+            font-family: Trebuchet MS, sans-serif;
+            }
+               div#campo{
+         			width: 250px;
+                  margin: 20px;
+                  padding: 20px;
+                  background-color: white;
+                  border-radius: 10px;
+                  font-weight: bold;  
+                  border: 1px solid gray; 			
+   			      }
+                  div#menu {
+                     background-color: black;
+                     width: 100%;
+                     height: 200px;
+
+                  }
+               div#campores {
+                  width: 350px;
+                  margin: 20px;
+                  padding: 20px;
+                  background-color: white;
+                  border-radius: 10px;
+                  text-align: justify;
+                  }
+                     select#alunos{
+            				width: 150px;
+                        border-radius: 10px;
+            				}
+                     select#sala{
+                        width: 250px;
+                        border-radius:10px;
+                        }
+                     input#dia{
+                        width: 250px;
+                        border-radius: 10px;
+                        }
+

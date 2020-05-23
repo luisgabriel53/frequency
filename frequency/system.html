@@ -1,0 +1,243 @@
+<html>
+   <head>
+      <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0">
+      <title>Frequency :: Homepage</title>
+     <style>
+      div#feedback{
+                  width: 300px;
+                  margin: 0px;
+                  padding: 0px;
+                  background-color: white;
+                  border-radius: 10px;
+                  font-weight: bold;            
+                  }
+     *{
+   margin:0;
+   padding:0;
+   font-family:Trebuchet MS, sans-serif;
+
+   }
+   
+.menu{
+   width:100%;
+   height:50px;
+   background-color: rgb(21,21,21);
+   border-radius: 10px;
+   color: white;
+   }
+   
+.menu>ul{
+   list-style:none;  
+   position:relative;
+   margin-left:50px;
+   }
+.menu ul li{
+      width:150px;
+      float:left;
+   }
+
+.menu a{
+   padding:15px;
+   display:block;
+   text-decoration: none;
+   background-color: rgb(21,21,21);
+    border-radius: 10px;
+   text-align:center;
+
+   color: white;
+   }
+.menu ul ul{
+   list-style:none;
+   position:absolute;
+   visibility:hidden;
+   
+   }
+.menu ul li:hover ul{
+   visibility:visible;
+
+   }
+   
+.menu a:hover{
+   background-color:white;
+   color:black;
+
+    border-radius: 10px;
+   }
+
+.menu ul ul li{
+   float:none;
+   border: 1px solid black;
+border-radius: 10px;
+   }
+.menu ul ul li a{
+   background-color: green;
+    border-radius: 10px;
+   }
+#bt_menu{
+   display: none;
+   }
+label[for='bt_menu']{
+   padding:5px;
+   background-color: green;
+   color:white;
+   font-family:'Arial';
+   text-align:center;
+   font-size:30px;
+   cursor:pointer;
+   display:none;
+   width:50px;
+   height:50px;
+   }  
+label[for='bt_menu']:hover{
+   background-color:#f4f4f4;
+   color:white;
+   }
+   p#aviso {
+      color: white;
+      background-color: green;
+      text-align: center;
+   }
+@media (max-width: 800px) {
+.menu{
+   margin-left:-100%;
+   transition:all .4s;
+   }
+label[for='bt_menu']{
+   display:block;
+   }
+.menu>ul{
+   margin-left:0;
+   }
+.menu{
+   margin-top:5px;
+   }
+.menu ul li{
+   width:100%;
+   float:none;
+   }
+.menu ul ul{
+   position:static;
+   overflow:hidden;
+   max-height:0;
+   transition:all .4s;
+   }
+.menu ul li:hover ul{
+   height:auto;
+   max-height:200px;
+   transition:all .4s;
+   }
+#bt_menu:checked ~ .menu{
+   margin-left:0;
+   }
+}
+  </style>
+   <link rel="stylesheet" type="text/css" href="style.css"></link>
+   </head><br>
+
+   <body> <center> <Br> <Br> <br>
+       <a href='system.html'>  <img src="logo.png" width="auto" height="80px" style="opacity: 80%;"></a><br> </center>
+      <input type="checkbox" id="bt_menu">
+
+<label for="bt_menu"  onclick="document.getElementById('aviso').innerHTML = ' Clique novamente para fechar! ';
+   " style="border-radius: 10px; width: 30px; height: 30px; text-align: center; left: 10px; margin-top: 0;">&#9776;</label>
+
+<nav class="menu">
+   <p id="aviso"> </p>
+   <ul>
+      <li><center><a href="system.html">Home</a></li>
+          <li><a href="#">Sobre</a>
+         <ul>
+               <li><a href="#">Objetivos</a>
+                <li><a href="#">Quem somos</a>
+            </ul>
+        </li>
+        <li><a href="dados.php">Dados</a>
+        </li>
+      
+        <li><a href="index.html">Sair</a></li>
+    </ul>
+</nav>
+      <center>
+     
+         <div id="campo">
+            <form action="script.php" method="POST">
+                  Turma: <BR>
+                 <select id="sala" name="sala">
+                     <option>Nenhuma turma selecionada.</option>
+                     <option>1° ANO DE ENFERMAGEM</option>
+                     <option>1° ANO DE INFORMÁTICA</option>
+                     <option>1° ANO DE COMÉRCIO</option>
+                     <option>1° ANO DE ADMINISTRAÇÃO</option>
+                     <option>2° ANO DE ENFERMAGEM</option>
+                     <option>2° ANO DE INFORMÁTICA</option>
+                     <option>2° ANO DE COMÉRCIO</option>
+                     <option>2° ANO DE ADMINISTRAÇÃO</option>
+                     <option>3° ANO DE ENFERMAGEM</option>
+                     <option>3° ANO DE INFORMÁTICA</option>
+                     <option>2° ANO DE COMÉRCIO</option>
+                     <option>3° ANO DE ADMINISTRAÇÃO</option>
+
+                  </select><br><Br>
+                  Dia: <BR>
+                     <input id="dia" type="date" name="dia"></input><br><Br>
+                  <script type="text/javascript">
+                     $(document).ready(function(){;
+                     $("#send").submit(function( e ) {
+                        e.preventDefault();
+                        data = $(this).serialize();
+                        $.ajax({
+                           type: 'POST',
+                           url: 'script.php',
+                           dataType: 'html',
+                           data: data,
+                           success: function( data ) {
+                              $( "#report" ).append( data );
+                           }
+                     });
+                     });
+                  });
+
+                  </script>
+                  Número dos alunos que faltaram: <br>
+                  <select multiple="multiple" id="alunos" name="alunos">
+                     <option>Nenhum aluno faltou.</option>
+                     <option>1</option><option>2</option>
+                     <option>3</option><option>4</option>
+                     <option>5</option><option>6</option>
+                     <option>7</option><option>8</option>
+                     <option>9</option><option>10</option>
+                     <option>11</option><option>12</option>
+                     <option>13</option><option>14</option>
+                     <option>15</option><option>16</option>
+                     <option>17</option><option>18</option>
+                     <option>19</option><option>20</option>
+                     <option>21</option><option>22</option>
+                     <option>23</option><option>24</option>
+                     <option>25</option><option>26</option>
+                     <option>27</option><option>28</option>
+                     <option>29</option><option>30</option>
+                     <option>31</option><option>32</option>
+                     <option>33</option><option>34</option>
+                     <option>35</option><option>36</option>
+                     <option>37</option><option>38</option>
+                     <option>39</option><option>40</option>
+                     <option>41</option><option>42</option>
+                     <option>43</option><option>44</option>
+                     <option>45</option>
+                  </select><br><br>
+
+                  <input type="submit" value="Enviar" name="enviar">
+
+            </form>
+
+         </div>
+<br>
+<div id="feedback">
+Feedbacks? Entre em contato com nosso <a href="https://instagram.com/appfrequency" target="_blank">Instagram.</a>
+</div>  
+
+      </center>   
+   
+   </body>
+
+</html>
