@@ -14,7 +14,7 @@
 
 				$alunosfalt = $_POST['alunos'];
 $host = 'root';
-$password = 'harrycorp22668';
+$password = '';
 $connection = mysql_connect($db, $host, $password);
 $db = mysql_select_db('frequency');
 				$result_usuario = "INSERT INTO faltas (sala, dia, alunosfalt) VALUES ('$sala', '$dia', '$alunosfalt')";
