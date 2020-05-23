@@ -2,7 +2,7 @@
 $login = $_POST['login'];
 $senha = MD5($_POST['senha']);
 $host = 'root';
-$password = 'harrycorp22668';
+$password = '';
 $connect = mysql_connect($db, $host, $password);
 $db = mysql_select_db('frequency');
 $query_select = "SELECT login FROM usuarios WHERE login = '$login'";
