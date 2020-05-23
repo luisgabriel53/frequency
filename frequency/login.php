@@ -3,7 +3,7 @@ $login = $_POST['login'];
 $entrar = $_POST['entrar'];
 $senha = md5($_POST['senha']);
 $host = 'root';
-$password = 'harrycorp22668';
+$password = '';
 $connect = mysql_connect($db, $host, $password);
 $db = mysql_select_db('frequency');
   if (isset($entrar)) {
