@@ -1,6 +1,6 @@
 <?php
 $host = 'root';
-$password = 'harrycorp22668';
+$password = '';
 $connection = mysql_connect($db, $host, $password);
 $db = mysql_select_db('frequency');
 
